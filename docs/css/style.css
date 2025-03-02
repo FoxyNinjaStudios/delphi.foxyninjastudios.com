@@ -55,3 +55,8 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+.icon-block .material-icons{
+  color: blueviolet!important;
+  font-size: 80px;
+}
