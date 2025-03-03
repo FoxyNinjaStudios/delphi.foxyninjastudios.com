@@ -81,11 +81,6 @@ footer.page-footer {
   line-height: 70px;
 }
 
-@media screen and (max-width: 600px) {
-  .hidesmall{
-  }
-}
-
 .blursection{
   filter:blur(1.2px);
 }
