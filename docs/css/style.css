@@ -86,3 +86,7 @@ footer.page-footer {
     display: none;
   }
 }
+
+.blursection{
+  filter:blur(1.2px);
+}
