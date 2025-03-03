@@ -83,7 +83,6 @@ footer.page-footer {
 
 @media screen and (max-width: 600px) {
   .hidesmall{
-    display: none;
   }
 }
 
