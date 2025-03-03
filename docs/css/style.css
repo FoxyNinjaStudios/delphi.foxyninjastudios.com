@@ -1,4 +1,4 @@
-.icon{
+.icon {
   width: 120px;
   height: 120px;
   background-image: url('../images/icon.png');
@@ -6,10 +6,10 @@
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0px 0px 10px black;
-  margin:auto;
+  margin: auto;
   border-radius: 30px;
   border: 5px solid blueviolet;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 nav ul a,
@@ -29,17 +29,19 @@ p {
   min-height: 80vh;
   line-height: 0;
   height: auto;
-  color: rgba(255,255,255,.9);
+  color: rgba(255, 255, 255, .9);
 }
-  .parallax-container .section {
-    width: 100%;
-  }
+
+.parallax-container .section {
+  width: 100%;
+}
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
+
   #index-banner .section {
     top: 10%;
   }
@@ -60,8 +62,8 @@ footer.page-footer {
   margin: 0;
 }
 
-.icon-block .material-icons{
-  color: blueviolet!important;
+.icon-block .material-icons {
+  color: blueviolet !important;
   font-size: 80px;
   text-shadow: 0px 0px 1px white;
 }
@@ -80,7 +82,12 @@ footer.page-footer {
 }
 
 .typewriter {
-  display: inline-block;
+  font-size: 3em;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px blueviolet;
+  margin: 20px auto;
+  overflow-y: visible;
+  display: block;
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.15em solid orange;
@@ -92,19 +99,23 @@ footer.page-footer {
   from {
     width: 0;
   }
+
   99.9% {
     width: 100%;
   }
+
   to {
     width: "auto";
   }
 }
 
 @keyframes blink-caret {
+
   from,
   to {
     border-color: transparent;
   }
+
   50% {
     border-color: orange;
   }
