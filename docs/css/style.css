@@ -81,10 +81,6 @@ footer.page-footer {
   line-height: 70px;
 }
 
-.blursection{
-  filter:blur(1.2px);
-}
-
 .typewriter {
   display: inline-block;
   overflow: hidden;
