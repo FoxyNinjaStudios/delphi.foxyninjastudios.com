@@ -94,11 +94,14 @@ async function enableCam(event) {
     // getUsermedia parameters
     const constraints = {
         video: {
-            deviceId: $("#videoSelector").val() ? { exact: $("#videoSelector").val() } : undefined
+            deviceId: $("#videoSelector").val() ? { exact: $("#videoSelector").val() } : undefined,
+            facingMode: "environment"
         }
     };
     if (allWebcams.length === 0) {
-        constraints.video = true;
+        constraints.video = {
+            facingMode: "environment"
+        }
         $("#videoSelector").remove();
     }
     // Activate the webcam stream.
