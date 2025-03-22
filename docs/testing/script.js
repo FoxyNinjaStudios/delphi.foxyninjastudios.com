@@ -287,7 +287,7 @@ async function uploadModel() {
         $("#overlay").fadeOut();
         $(".detectOnClick img").click();
     } catch (error) {
-        console.error("Error loading the custom model:", error);
+        console.log("Error loading the custom model:", error);
         window.location.reload();
        // M.toast({ html: "Error loading the custom model. Please try again.", classes: "rounded red" });
     }
