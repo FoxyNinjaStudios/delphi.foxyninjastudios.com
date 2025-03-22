@@ -78,25 +78,6 @@
     var allDSs = [];
     var ds = null;
 
-
-    function getAllFiles() {
-      const items = { ...localStorage };
-      var retArr = [];
-      for (const key in items) {
-        if (key === "theFileURL") {
-          theFileURL = items[key];
-          continue;
-        }
-        if (items[key].includes("obj-det")) {
-          var obj = JSON.parse(items[key]);
-          obj.id = key;
-          retArr.push(obj);
-        }
-      }
-      return retArr.sort((a, b) => {
-        return b.date - a.date;
-      });
-    }
     function loadImage() {
       var x = document.getElementById("imageSelector").value;
       var args = x.split("-");

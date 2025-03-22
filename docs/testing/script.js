@@ -49,6 +49,11 @@ const initializeObjectDetector = async () => {
 
 function start() {
     initializeObjectDetector();
+    $(".detectOnClick img").attr("src", "./test.jpg");
+    setTimeout(() => {
+        $(".detectOnClick img").click();
+    }, 200);
+
 }
 
 
