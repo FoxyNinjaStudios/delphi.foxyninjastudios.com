@@ -35,7 +35,6 @@ let runningMode = "IMAGE";
 const initializeObjectDetector = async () => {
     const vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.2/wasm");
     // use efficient net model
-    //var x = "https://storage.googleapis.com/mediapipe-models/object_detection/tflite/screencast/mobilenet_v1_1.0_640_quant_decoder.tflite";
     var x = "./model.tflite";
     objectDetector = await ObjectDetector.createFromOptions(vision, {
         baseOptions: {
@@ -109,8 +108,8 @@ async function enableCam(event) {
             /* handle the error */
         });
 
-        $('#videoDselect').remove();
-        $('#videoOptions').fadeOut();
+    $('#videoDselect').remove();
+    $('#videoOptions').fadeOut();
 }
 let lastVideoTime = -1;
 async function predictWebcam() {
