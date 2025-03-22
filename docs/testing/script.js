@@ -197,6 +197,7 @@ async function handleClick(event) {
     if (!objectDetector) {
         M.Toast.dismissAll();
         M.toast({ html: "Error Loading Object Detector. Please try again.", classes: "rounded" });
+        window.location.reload();
         return;
     }
     // if video mode is initialized, set runningMode to image
