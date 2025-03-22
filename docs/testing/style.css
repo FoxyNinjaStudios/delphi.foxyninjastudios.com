@@ -130,7 +130,7 @@ section {
 {
   width: 90%;
   padding: 0 30px;
-  overflow:auto;
+  overflow:hidden;
 }
 
 .dropdown-content li>a, .dropdown-content li>span {
