@@ -62,7 +62,7 @@
       <div style="margin: -17px auto 20px; color: #ded8d8; background-color: black; text-align:center;width:30px">OR</div>
     </div>
 
-    <button id='' class="btn waves-effect blue" onclick="$('#overlay').fadeOut()"><i
+    <button id='' class="btn waves-effect blue" onclick="useENet()"><i
         class="material-icons left">arrow_forward</i>
       Quickstart with Efficient Net </button>
 
@@ -105,8 +105,16 @@
         }, 100);
       }
       reader.readAsDataURL(file);
-
     }
+
+    function useENet() {
+      $('#overlay').fadeOut();
+      M.toast({
+        html: 'EfficientNet model loaded, with 80 classes from COCO dataset',
+        classes: 'rounded green'
+      });
+    }
+
   </script>
 
   <script type="module" src="./script.js"></script>
