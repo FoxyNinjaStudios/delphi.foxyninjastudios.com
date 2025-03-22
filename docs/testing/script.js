@@ -250,3 +250,41 @@ function displayImageDetections(result, resultElement) {
 }
 
 $(".detectOnClick img").on("click", handleClick);
+
+
+async function uploadModel() {
+    const file = document.getElementById("fileM").files[0];
+    if (!file) {
+        alert("Please select a .tflite file.");
+        return;
+    }
+
+    // Validate file extension
+    if (file.name.split('.').pop().toLowerCase() !== "tflite") {
+        alert("Invalid file type. Please upload a .tflite file.");
+        return;
+    }
+
+    try {
+        // Create a temporary URL for the uploaded file
+        const tempUrl = URL.createObjectURL(file);
+
+        const vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.2/wasm");
+        objectDetector = await ObjectDetector.createFromOptions(vision, {
+            baseOptions: {
+                modelAssetPath: tempUrl, // Use the temporary URL here
+                delegate: "GPU"
+            },
+            scoreThreshold: 0.5,
+            runningMode: runningMode
+        });
+
+        M.toast({ html: "Custom model loaded successfully.", classes: "rounded green" });
+        $("#overlay").fadeOut();
+    } catch (error) {
+        console.error("Error loading the custom model:", error);
+        M.toast({ html: "Error loading the custom model. Please try again.", classes: "rounded red" });
+    }
+}
+
+document.getElementById("fileM").addEventListener("change", uploadModel);

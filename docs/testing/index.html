@@ -51,13 +51,13 @@
   </section>
   <div id="overlay" style="display:block">
 <div class="icon" style="height:30vh;width:30vh; margin-top:15vh; margin-bottom: 5vh"></div>
-  <input type="file" id="fileM" accept=".tflite" style="display:none;" onchange="uploadModel()">
-  <button style='' id='uploadModel' class="btn waves-effect green" onclick="$('#fileM').click()"><i
+  <input type="file" id="fileM" accept=".tflite" style="display:none;">
+  <button id='uploadModel' class="btn waves-effect green" onclick="$('#fileM').click()"><i
       class="material-icons left">file_upload</i>
     Upload Custom Model</button>
 
     <p> --- OR ---</p>
-    <button id='uploadModel' class="btn waves-effect blue" onclick="$('#overlay').fadeOut()"><i
+    <button id='' class="btn waves-effect blue" onclick="$('#overlay').fadeOut()"><i
         class="material-icons left">arrow_forward</i>
       Quickstart with Efficient Net </button>
 
