@@ -110,8 +110,9 @@
     function useENet() {
       $('#overlay').fadeOut();
       M.toast({
-        html: 'EfficientNet model loaded, with 80 classes from COCO dataset',
-        classes: 'rounded green'
+        html: 'EfficientNet model loaded, with <a style="margin-left:10px;text-decoration:underline;font-weight:bold;color:white!important" href="https://github.com/amikelive/coco-labels/blob/master/coco-labels-2014_2017.txt" target="_blank"> 80 classes from COCO dataset</a>',
+        classes: 'rounded green',
+        displayLength: 5000
       });
     }
 
