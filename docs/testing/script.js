@@ -195,7 +195,7 @@ async function handleClick(event) {
     }
     if (!objectDetector) {
         M.Toast.dismissAll();
-        M.toast({ html: "Error Loading Object Detector.", classes: "rounded" });
+        M.toast({ html: "Error Loading Object Detector.", classes: "" });
         window.location.reload();
         return;
     }
@@ -282,14 +282,12 @@ async function uploadModel() {
             runningMode: runningMode
         });
 
-        M.toast({ html: "Custom model loaded successfully.", classes: "rounded green" });
+        M.toast({ html: "Custom model loaded successfully.", classes: "green" });
         $("#overlay").fadeOut();
         $(".detectOnClick img").fadeIn();
         $(".detectOnClick img").click();
     } catch (error) {
         console.log("Error loading the custom model:", error);
-        //window.location.reload();
-       // M.toast({ html: "Error loading the custom model. Please try again.", classes: "rounded red" });
     }
 }
 
