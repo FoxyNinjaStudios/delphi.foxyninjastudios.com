@@ -13,13 +13,11 @@
 </head>
 
 <body>
-<div class="icon" style="height:120px;width:120px"></div>
+  <div class="icon" style="height:120px;width:120px"></div>
   <h1 style="text-align:center"> Object Detection Test
-</h1>
-<button class="btn waves-effect btn-floating red" onclick="window.location.reload()"
-  style="position: fixed; right: 10px; top: 10px;"
-><i
-    class="material-icons">refresh</i></button>
+  </h1>
+  <button class="btn waves-effect btn-floating red" onclick="window.location.reload()"
+    style="position: fixed; right: 10px; top: 10px;"><i class="material-icons">refresh</i></button>
   <section id="imageD">
     <h2> Image Detection</h2>
     <input onchange="imageUploaded()" type="file" id="file" accept="image/*" style="display:none;">
@@ -51,75 +49,76 @@
     </div>
   </section>
   <div id="overlay" style="display:block">
-<div class="icon" style="height:30vh;width:30vh; margin-top:15vh; margin-bottom: 5vh"></div>
-  <input type="file" id="fileM" accept=".tflite" style="display:none;">
-  <button id='uploadModel' class="btn waves-effect green" onclick="$('#fileM').click()"><i
-      class="material-icons left">file_upload</i>
-    Upload Custom tflite Model</button>
+    <div class="icon" style="height:30vh;width:30vh; margin-top:15vh; margin-bottom: 5vh"></div>
+    <input type="file" id="fileM" accept=".tflite" style="display:none;">
+    <button id='uploadModel' class="btn waves-effect green" onclick="$('#fileM').click()"><i
+        class="material-icons left">file_upload</i>
+      Upload Custom tflite Model</button>
 
     <div style="display: block; text-align: center; margin: 20px 0;">
       <hr style="width: 50px;">
-      <div style="margin: -17px auto 20px; color: #ded8d8; background-color: black; text-align:center;width:30px">OR</div>
+      <div style="margin: -17px auto 20px; color: #ded8d8; background-color: black; text-align:center;width:30px">OR
+      </div>
     </div>
 
-    <button id='' class="btn waves-effect blue" onclick="useENet()"><i
-        class="material-icons left">arrow_forward</i>
+    <button id='' class="btn waves-effect blue" onclick="useENet()"><i class="material-icons left">arrow_forward</i>
       Quickstart with Efficient Net </button>
 
   </div>
 </body>
 
-  <script>
-    var allWebcams = [];
-    var hash = window.location.hash.replace("#", "");
-    var args = hash.split(",");
-    var dsID = args[0];
-    var version = args[1];
-    var allDSs = [];
-    var ds = null;
+<script>
+  var allWebcams = [];
+  var hash = window.location.hash.replace("#", "");
+  var args = hash.split(",");
+  var dsID = args[0];
+  var version = args[1];
+  var allDSs = [];
+  var ds = null;
 
-    function loadImage() {
-      var x = document.getElementById("imageSelector").value;
-      var args = x.split("-");
-      var folder = "validation";
-      var file = valImages[parseInt(args[1])];
-      if (args[0] == "test") {
-        folder = "test";
-        file = testImages[parseInt(args[1])];
-      }
-      $(".detectOnClick img").attr("src", theFileURL + "datasets/" + dsID + "/images/" + folder + "/images/" + file.file_name);
+  function loadImage() {
+    var x = document.getElementById("imageSelector").value;
+    var args = x.split("-");
+    var folder = "validation";
+    var file = valImages[parseInt(args[1])];
+    if (args[0] == "test") {
+      folder = "test";
+      file = testImages[parseInt(args[1])];
+    }
+    $(".detectOnClick img").attr("src", theFileURL + "datasets/" + dsID + "/images/" + folder + "/images/" + file.file_name);
+    setTimeout(() => {
+      $(".detectOnClick img").trigger("click");
+    }, 100);
+  }
+
+
+  function imageUploaded() {
+    var file = document.getElementById("file").files[0];
+    // set source of detectOnClick img to the uploaded image
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(".detectOnClick img").attr("src", e.target.result);
       setTimeout(() => {
         $(".detectOnClick img").trigger("click");
       }, 100);
     }
+    reader.readAsDataURL(file);
+  }
 
+  function useENet() {
+    $('#overlay').fadeOut();
+    $(".detectOnClick img").fadeIn();
+    M.toast({
+      html: 'EfficientNet model loaded, with <a style="margin-left:10px;text-decoration:underline;font-weight:bold;color:white!important" href="https://github.com/amikelive/coco-labels/blob/master/coco-labels-2014_2017.txt" target="_blank"> 80 classes from COCO dataset</a>',
+      classes: 'rounded green',
+      displayLength: 5000
+    });
+    $(".detectOnClick img").click();
+  }
 
-    function imageUploaded() {
-      var file = document.getElementById("file").files[0];
-      // set source of detectOnClick img to the uploaded image
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $(".detectOnClick img").attr("src", e.target.result);
-        setTimeout(() => {
-          $(".detectOnClick img").trigger("click");
-        }, 100);
-      }
-      reader.readAsDataURL(file);
-    }
+</script>
 
-    function useENet() {
-      $('#overlay').fadeOut();
-      M.toast({
-        html: 'EfficientNet model loaded, with <a style="margin-left:10px;text-decoration:underline;font-weight:bold;color:white!important" href="https://github.com/amikelive/coco-labels/blob/master/coco-labels-2014_2017.txt" target="_blank"> 80 classes from COCO dataset</a>',
-        classes: 'rounded green',
-        displayLength: 5000
-      });
-      $(".detectOnClick img").click();
-    }
-
-  </script>
-
-  <script type="module" src="./script.js"></script>
+<script type="module" src="./script.js"></script>
 
 
 </html>

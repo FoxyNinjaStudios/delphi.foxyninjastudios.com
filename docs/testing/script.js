@@ -49,8 +49,8 @@ const initializeObjectDetector = async () => {
 
 function start() {
     initializeObjectDetector();
+    $(".detectOnClick img").fadeOut();
     $(".detectOnClick img").attr("src", "./test.jpg");
-   // setTimeout(() => { $(".detectOnClick img").click(); }, 1200);
 }
 
 
@@ -284,6 +284,7 @@ async function uploadModel() {
 
         M.toast({ html: "Custom model loaded successfully.", classes: "rounded green" });
         $("#overlay").fadeOut();
+        $(".detectOnClick img").fadeIn();
         $(".detectOnClick img").click();
     } catch (error) {
         console.log("Error loading the custom model:", error);
