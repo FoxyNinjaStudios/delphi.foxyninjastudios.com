@@ -50,10 +50,7 @@ const initializeObjectDetector = async () => {
 function start() {
     initializeObjectDetector();
     $(".detectOnClick img").attr("src", "./test.jpg");
-    setTimeout(() => {
-        $(".detectOnClick img").click();
-    }, 200);
-
+   // setTimeout(() => { $(".detectOnClick img").click(); }, 1200);
 }
 
 
@@ -187,7 +184,6 @@ function displayVideoDetections(result) {
     }
 }
 
-
 async function handleClick(event) {
     const highlighters = event.target.parentNode.getElementsByClassName("highlighter");
     while (highlighters[0]) {
@@ -199,7 +195,7 @@ async function handleClick(event) {
     }
     if (!objectDetector) {
         M.Toast.dismissAll();
-        M.toast({ html: "Error Loading Object Detector. Please try again.", classes: "rounded" });
+        M.toast({ html: "Error Loading Object Detector.", classes: "rounded" });
         window.location.reload();
         return;
     }
@@ -258,7 +254,6 @@ function displayImageDetections(result, resultElement) {
 }
 
 $(".detectOnClick img").on("click", handleClick);
-
 
 async function uploadModel() {
     const file = document.getElementById("fileM").files[0];
